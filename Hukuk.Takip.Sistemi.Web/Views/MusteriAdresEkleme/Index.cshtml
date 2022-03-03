@@ -1,0 +1,69 @@
+﻿@model Hukuk.Takip.Sistemi.Web.Models.MusteriAdres.MusteriAdresEklemeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2>Müşteri Adres Ekleme</h2><br />
+
+
+
+<form asp-action="Index" asp-controller="MusteriAdresEkleme" method="post">
+    <div class="row">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Musteri" class="control-label">Müşteri</label>
+                <select name="MusteriId" class="form-control" asp-items="@ViewBag.Musteriler">
+                    <option>Müsteri Seçiniz</option>
+                </select>
+                <span asp-validation-for="MusteriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdresTipi" class="control-label">Adres Tipi</label>
+                <input asp-for="AdresTipi" class="form-control" />
+                <span asp-validation-for="AdresTipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sehir" class="control-label">İl</label>
+                <input asp-for="Sehir" class="form-control" />
+                <span asp-validation-for="Sehir" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ilce" class="control-label">İlçe</label>
+                <input asp-for="Ilce" class="form-control" />
+                <span asp-validation-for="Ilce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mahalle" class="control-label">Mahalle</label>
+                <input asp-for="Mahalle" class="form-control" />
+                <span asp-validation-for="Mahalle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostaKodu" class="control-label">Posta Kodu</label>
+                <input asp-for="PostaKodu" class="form-control" />
+                <span asp-validation-for="PostaKodu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Adres" class="control-label">Adres</label>
+                <input asp-for="Adres" class="form-control" />
+                <span asp-validation-for="Adres" class="text-danger"></span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="KAYDET" class="btn btn-success btn-group-lg" formmethod="post" formaction="/MusteriAdresEkleme/Create">
+        <input type="button" class="btn btn-danger btn-group-lg" value="İPTAL" onclick="location.href='@Url.Action("Index", "MusteriAdresIzleme")'" />
+      
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

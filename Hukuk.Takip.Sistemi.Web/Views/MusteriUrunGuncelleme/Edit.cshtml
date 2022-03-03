@@ -1,0 +1,296 @@
+﻿@model Hukuk.Takip.Sistemi.Web.Models.MusteriUrun.MusteriUrunGuncellemeViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Müşteri Ürün Güncelleme</h2><br />
+
+
+<form asp-action="Edit" asp-controller="MusteriUrunGuncelleme" method="post">
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Musteri" class="control-label">Müşteri</label>
+                <select name="MusteriId" class="form-control" asp-items="@ViewBag.Musteriler">
+                    <option value="">Müşteri Seçiniz</option>
+                </select>
+                <span asp-validation-for="MusteriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunAd" class="control-label">Ürün Adı</label>
+                <input asp-for="UrunAd" class="form-control" />
+                <span asp-validation-for="UrunAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UrunTipKod" class="control-label">Ürün Tip Kodu</label>
+                <input asp-for="UrunTipKod" class="form-control" />
+                <span asp-validation-for="UrunTipKod" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TakipSubeKod" class="control-label">Takip Şube Kodu</label>
+                <input asp-for="TakipSubeKod" class="form-control" />
+                <span asp-validation-for="TakipSubeKod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakipSubeAd" class="control-label">Takip Şube Adı</label>
+                <input asp-for="TakipSubeAd" class="form-control" />
+                <span asp-validation-for="TakipSubeAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakipHesapNo" class="control-label">Takip Hesap Numarası</label>
+                <input asp-for="TakipHesapNo" class="form-control" />
+                <span asp-validation-for="TakipHesapNo" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="TakipTutar" class="control-label">Takip Tutar</label>
+                <input asp-for="TakipTutar" class="form-control" />
+                <span asp-validation-for="TakipTutar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParaBirimi" class="control-label">Para Birimi</label>
+                <input asp-for="ParaBirimi" class="form-control" />
+                <span asp-validation-for="ParaBirimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakipTarihi" class="control-label">Takip Tarihi</label>
+                <input asp-for="TakipTarihi" class="form-control" />
+                <span asp-validation-for="TakipTarihi" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MasrafSubeKodu" class="control-label">Masraf Şube Kodu</label>
+                <input asp-for="MasrafSubeKodu" class="form-control" />
+                <span asp-validation-for="MasrafSubeKodu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasrafSubeAd" class="control-label">Masraf Şube Adı</label>
+                <input asp-for="MasrafSubeAd" class="form-control" />
+                <span asp-validation-for="MasrafSubeAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MasrafHesap" class="control-label">Masraf Hesabı</label>
+                <input asp-for="MasrafHesap" class="form-control" />
+                <span asp-validation-for="MasrafHesap" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="MasrafTutar" class="control-label">Masraf Tutar</label>
+                <input asp-for="MasrafTutar" class="form-control" />
+                <span asp-validation-for="MasrafTutar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaizSubeKod" class="control-label">Faiz Şube Kodu</label>
+                <input asp-for="FaizSubeKod" class="form-control" />
+                <span asp-validation-for="FaizSubeKod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaizSubeAd" class="control-label">Faiz Şube Adı</label>
+                <input asp-for="FaizSubeAd" class="form-control" />
+                <span asp-validation-for="FaizSubeAd" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="FaizHesap" class="control-label">Faiz Hesabı</label>
+                <input asp-for="FaizHesap" class="form-control" />
+                <span asp-validation-for="FaizHesap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FaizTutar" class="control-label">Faiz Tutar</label>
+                <input asp-for="FaizTutar" class="form-control" />
+                <span asp-validation-for="FaizTutar" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UrunDurumu" class="control-label">Ürün Durumu</label>
+                <input asp-for="UrunDurumu" class="form-control" />
+                <span asp-validation-for="UrunDurumu" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    @*<div class="row-md-4">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="OnErteleme" class="control-label">Ön Erteleme</label>
+                <input asp-for="OnErteleme" class="form-control" />
+                <span asp-validation-for="OnErteleme" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <br />*@
+
+    @*<div class="row-md-8">
+        <div class="col-md-8">
+
+           <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="ErtelemeVarMi" /> @Html.DisplayNameFor(model => model.ErtelemeVarMi)
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <br />
+    <br />
+    <div class="row-md-4" style="margin-left:1px">
+        <div class="col-md-4">
+            <div class="form-group">
+                <input type="submit" value="KAYDET" class="btn btn-success btn-group-lg" formmethod="post" formaction="/MusteriUrunGuncelleme/Update">
+                @*<input type="submit" value="İPTAL" class="btn btn-success btn-group-lg" formmethod="get" formaction="/MusteriUrunIzleme/Index"><br /><br />*@
+                <input type="button" class="btn btn-danger btn-group-lg" value="İPTAL" onclick="location.href='@Url.Action("Index", "MusteriUrunIzleme")'" />
+
+            </div>
+        </div>
+    </div><br />
+    <div class="form-group " style="visibility:collapse">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+</form>
+
+
+@*<div class="row">
+    <div class="col-md-4">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Musteri" class="control-label"></label>
+            <select name="MusteriId" class="form-control" asp-items="@ViewBag.Musteriler">
+             
+            </select>
+            <span asp-validation-for="MusteriId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UrunAd" class="control-label"></label>
+            <input asp-for="UrunAd" class="form-control" />
+            <span asp-validation-for="UrunAd" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UrunTipKod" class="control-label"></label>
+            <input asp-for="UrunTipKod" class="form-control" />
+            <span asp-validation-for="UrunTipKod" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TakipSubeKod" class="control-label"></label>
+            <input asp-for="TakipSubeKod" class="form-control" />
+            <span asp-validation-for="TakipSubeKod" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TakipSubeAd" class="control-label"></label>
+            <input asp-for="TakipSubeAd" class="form-control" />
+            <span asp-validation-for="TakipSubeAd" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TakipHesapNo" class="control-label"></label>
+            <input asp-for="TakipHesapNo" class="form-control" />
+            <span asp-validation-for="TakipHesapNo" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TakipTutar" class="control-label"></label>
+            <input asp-for="TakipTutar" class="form-control" />
+            <span asp-validation-for="TakipTutar" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ParaBirimi" class="control-label"></label>
+            <input asp-for="ParaBirimi" class="form-control" />
+            <span asp-validation-for="ParaBirimi" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TakipTarihi" class="control-label"></label>
+            <input asp-for="TakipTarihi" class="form-control" />
+            <span asp-validation-for="TakipTarihi" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MasrafSubeKodu" class="control-label"></label>
+            <input asp-for="MasrafSubeKodu" class="form-control" />
+            <span asp-validation-for="MasrafSubeKodu" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MasrafSubeAd" class="control-label"></label>
+            <input asp-for="MasrafSubeAd" class="form-control" />
+            <span asp-validation-for="MasrafSubeAd" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MasrafHesap" class="control-label"></label>
+            <input asp-for="MasrafHesap" class="form-control" />
+            <span asp-validation-for="MasrafHesap" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MasrafTutar" class="control-label"></label>
+            <input asp-for="MasrafTutar" class="form-control" />
+            <span asp-validation-for="MasrafTutar" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FaizSubeKod" class="control-label"></label>
+            <input asp-for="FaizSubeKod" class="form-control" />
+            <span asp-validation-for="FaizSubeKod" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FaizSubeAd" class="control-label"></label>
+            <input asp-for="FaizSubeAd" class="form-control" />
+            <span asp-validation-for="FaizSubeAd" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FaizHesap" class="control-label"></label>
+            <input asp-for="FaizHesap" class="form-control" />
+            <span asp-validation-for="FaizHesap" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FaizTutar" class="control-label"></label>
+            <input asp-for="FaizTutar" class="form-control" />
+            <span asp-validation-for="FaizTutar" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input asp-for="ErtelemeVarMi" /> @Html.DisplayNameFor(model => model.ErtelemeVarMi)
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="OnErteleme" class="control-label"></label>
+            <input asp-for="OnErteleme" class="form-control" />
+            <span asp-validation-for="OnErteleme" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UrunDurumu" class="control-label"></label>
+            <input asp-for="UrunDurumu" class="form-control" />
+            <span asp-validation-for="UrunDurumu" class="text-danger"></span>
+        </div>
+    </div>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

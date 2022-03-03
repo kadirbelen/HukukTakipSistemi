@@ -1,0 +1,126 @@
+﻿@model Hukuk.Takip.Sistemi.Web.Models.IcraTakip.IcraTakipEklemeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<h4>İcra Takip Ekleme</h4>
+<br />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="AvukatId" class="control-label">Avukat</label>
+                <select name="AvukatId" class="form-control" asp-items="@ViewBag.Avukatlar">
+                    <option>Seçiniz</option>
+                </select>
+                <span asp-validation-for="AvukatId" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="MusteriId" class="control-label">Müşteri</label>
+                <select asp-for="MusteriId" name="MusteriId" class="form-control" id="musteriId" asp-items="@ViewBag.Musteriler">
+                    <option>Seçiniz</option>
+                </select>
+                <span asp-validation-for="MusteriId" class="text-danger"></span>
+            </div>
+
+
+            @*<div class="form-group">
+                    <label asp-for="AvukatAtananUrunlerId" class="control-label"></label>
+                    <select name="AvukatAtananUrunlerId" class="form-control" asp-items="@ViewBag.AvukatAtananUrunler"></select>
+                    <span asp-validation-for="AvukatAtananUrunlerId" class="text-danger"></span>
+                </div>*@
+            @*<div class="form-group">
+                <label asp-for="AvukatAtananUrunlerId" class="control-label"></label>
+                <select asp-for="AvukatAtananUrunlerId" name="AvukatAtananUrunlerId" class="form-control"></select>
+                <span asp-validation-for="AvukatAtananUrunlerId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                    <label asp-for="AvukatAtananUrun" class="control-label"></label>
+                    <input asp-for="AvukatAtananUrun" class="form-control" />
+                    <span asp-validation-for="AvukatAtananUrun" class="text-danger"></span>
+                </div>
+            <div class="form-group">
+                <label asp-for="TakipTipi" class="control-label"></label>
+                <input asp-for="TakipTipi" class="form-control" />
+                <span asp-validation-for="TakipTipi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IcraDairesi" class="control-label">İcra Dairesi</label>
+                <input asp-for="IcraDairesi" class="form-control" />
+                <span asp-validation-for="IcraDairesi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakipTarihi" class="control-label">Takip Tarihi</label>
+                <input asp-for="TakipTarihi" class="form-control" />
+                <span asp-validation-for="TakipTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DosyaNo" class="control-label">Dosya No</label>
+                <input asp-for="DosyaNo" class="form-control" />
+                <span asp-validation-for="DosyaNo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="KAYDET" class="btn btn-success btn-group-lg" formmethod="post" formaction="/IcraTakipEkleme/Create">
+                <input type="button" class="btn btn-danger btn-group-lg" value="İPTAL" onclick="location.href='@Url.Action("Index", "IcraTakipIzleme")'" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+
+    @*<script type="text/javascript">
+            debugger;
+            //Insert default item "Select" in dropdownlist on load
+            $(document).ready(function () {
+                var items = "<option value='0'>Select</option>";
+                $("#avukatAtananId").html(items);
+            });
+
+            //Bind City dropdownlist
+            $("#musteriId").change(function () {
+                var musteriId = $("#musteriId").val();
+                var url = "/IcraTakipEkleme/AvukatAtananUrunler";
+
+                $.getJSON(url, { MusteriId: musteriId }, function (data) {
+                    var item = "";
+                    $("#avukatAtananId").empty();
+                    $.each(data, function (i, avukatAtanan) {
+                        item += '<option value="' + avukatAtanan.value + '">' + avukatAtanan.text + '</option>'
+                    });
+                    $("#avukatAtananId").html(item);
+                });
+            });
+        </script>*@
+
+    @*<script src="~/js/site.min.js"></script>
+    <script>
+        debugger;
+        $(function () {
+            $("select#MusteriId").change(function () {
+                var MusteriId = $(this).val();
+
+                $("select#AvukatAtananUrunlerId").empty();
+
+                $.getJSON(`/IcraTakipEkleme/AvukatAtananUrunler?MusteriId=${MusteriId}`, function (data) {
+                    //console.log(data);
+                    $.each(data, function (i, item) {
+                        $("select#AvukatAtananUrunlerId").append(`<option value="${item.Id}">${item.Durum}</option>`);
+                    });
+                });
+            })
+        });
+    </script>*@
+}

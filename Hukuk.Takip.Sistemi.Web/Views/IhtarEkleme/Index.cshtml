@@ -1,0 +1,65 @@
+﻿@model Hukuk.Takip.Sistemi.Web.Models.Ihtar.IhtarEklemeViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>İhtar Ekleme</h2>
+
+<br />
+<form asp-action="Index" asp-controller="IhtarEkleme" method="post">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Musteri" class="control-label">Müşteri</label>
+                <select name="MusteriId" class="form-control" asp-items="@ViewBag.Musteriler">
+                    <option>Müsteri Seçiniz</option>
+                </select>
+                <span asp-validation-for="MusteriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoterAd" class="control-label">Noter Ad</label>
+                <input asp-for="NoterAd" class="form-control" />
+                <span asp-validation-for="NoterAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TakipHesapNo" class="control-label">Takip Hesap Numarası</label>
+                <input asp-for="TakipHesapNo" class="form-control" />
+                <span asp-validation-for="TakipHesapNo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IhtarTarihi" class="control-label">İhtar Tarihi</label>
+                <input asp-for="IhtarTarihi" class="form-control" />
+                <span asp-validation-for="IhtarTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IhtarTebligTarihi" class="control-label">İhtar Tebliğ Tarihi</label>
+                <input asp-for="IhtarTebligTarihi" class="form-control" />
+                <span asp-validation-for="IhtarTebligTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IhtarTutar" class="control-label">İhtar Tutar</label>
+                <input asp-for="IhtarTutar" class="form-control" />
+                <span asp-validation-for="IhtarTutar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YevmiyeNo" class="control-label">Yevmiye Numarası</label>
+                <input asp-for="YevmiyeNo" class="form-control" />
+                <span asp-validation-for="YevmiyeNo" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="KAYDET" class="btn btn-success btn-group-lg" formmethod="post" formaction="/IhtarEkleme/Create">
+        <input type="button" class="btn btn-danger btn-group-lg" value="İPTAL" onclick="location.href='@Url.Action("Index", "IhtarIzleme")'" />
+    </div>
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

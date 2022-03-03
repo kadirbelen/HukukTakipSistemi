@@ -1,0 +1,125 @@
+﻿@model IEnumerable<Hukuk.Takip.Sistemi.Web.Models.AvukatAtananUrun.AvukatAtananUrunIzlemeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="position: absolute; left:0px;width:1800px; margin-top:30px">
+    <div style="margin-left:57px">
+        <h2>Atanan Avukat Listesi</h2><br />
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="invisible">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusteriNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunAd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunTipKod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipSubeKod)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipSubeAd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipHesapNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatAd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatSoyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatTip)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.DosyaYetkisi)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatTelNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Durum)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="invisible">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MusteriNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UrunTipKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakipSubeKod)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakipSubeAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakipHesapNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatTip)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.DosyaYetkisi)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatTelNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Durum)
+                </td>
+               
+                <td>
+                    <input name="btnOnay" type="button" class="btn btn-success btn-group-lg" value="Onay" onclick="location.href='@Url.Action("Edit", "AvukatAtananUrunGuncelleme",new {id=item.Id, type=2,durum=item.Durum})'" />
+                    <input type="button" class="btn btn-danger btn-group-lg" value="Red" onclick="location.href='@Url.Action("Edit", "AvukatAtananUrunGuncelleme",new {id=item.Id, type=3,durum=item.Durum})'" />
+      
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

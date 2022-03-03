@@ -1,0 +1,102 @@
+﻿@model IEnumerable<Hukuk.Takip.Sistemi.Web.Models.IcraTakip.IcraTakipIzlemeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="position: absolute; left:0px;width:1800px;">
+    <div style="margin-left:81px">
+        <h2>İcra Takibi</h2><br />
+        <p>
+            <input type="button" class="btn btn-success btn-group-lg" value="İcra Takip Ekle" onclick="location.href='@Url.Action("Index", "IcraTakipEkleme")'" />
+        </p>
+
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="invisible">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DosyaNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IcraDairesi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusteriNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatAd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatSoyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AvukatTip)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="invisible">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DosyaNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IcraDairesi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TakipTarihi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MusteriNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Soyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatAd)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AvukatTip)
+                </td>
+
+
+               
+
+                <td>
+                    @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

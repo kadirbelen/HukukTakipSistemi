@@ -1,0 +1,55 @@
+﻿@model Hukuk.Takip.Sistemi.Web.Models.MusteriTelefon.MusteriTelefonGuncellemeViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Müşteri Telefon Güncelleme</h2><br />
+
+
+<form asp-action="Edit" asp-controller="MusteriTelefonGuncelleme" method="post">
+
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Musteri" class="control-label">Müşteri</label>
+                <select name="MusteriId" class="form-control" asp-items="@ViewBag.Musteriler">
+                    @*<option value="">Müşteri Seçiniz</option>*@
+                </select>
+                <span asp-validation-for="MusteriId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonTİpi" class="control-label">TelefonTipi</label>
+                <input asp-for="TelefonTİpi" class="form-control" />
+                <span asp-validation-for="TelefonTİpi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonNo" class="control-label">Telefon Numarası</label>
+                <input asp-for="TelefonNo" class="form-control" />
+                <span asp-validation-for="TelefonNo" class="text-danger"></span>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row-md-8">
+        <div class="col-md-8">
+            <div class="form-group">
+                <input type="submit" value="KAYDET" class="btn btn-success btn-group-lg" formmethod="post" formaction="/MusteriTelefonGuncelleme/Update">
+                <input type="button" class="btn btn-danger btn-group-lg" value="İPTAL" onclick="location.href='@Url.Action("Index", "MusteriTelefonIzleme")'" />
+            
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group " style="visibility:collapse">
+        <label asp-for="Id" class="control-label"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

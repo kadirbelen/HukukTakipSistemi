@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Hukuk.Takip.Sistemi.Web.Models.IhtarUrun.IhtarUrunIzlemeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="position: absolute; left:0px;width:1800px;">
+    <div style="margin-left:101px">
+        <h2>İhtar Ürün Listesi</h2><br />
+        <p>
+            <input type="button" class="btn btn-success btn-group-lg" value="İhtar Ürün Ekle" onclick="location.href='@Url.Action("Index", "IhtarUrunEkleme")'" />
+        </p>
+
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="invisible">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunAd)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UrunTipKod)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.IhtarTutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnaParaTutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaizTutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.KomisyonTutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToplamBorc)
+                </th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="invisible">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrunAd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UrunTipKod)
+                    </td>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IhtarTutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnaParaTutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaizTutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KomisyonTutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToplamBorc)
+                    </td>
+
+                    <td>
+                        <input type="button" class="btn btn-success btn-group-sm" value="Güncelle" onclick="location.href='@Url.Action("Edit", "IhtarUrunGuncelleme",new {id=item.Id })'" />
+                        @*@Html.ActionLink("Edit", "Edit", "IhtarUrunGuncelleme", new { id = item.Id })*@
+                        @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

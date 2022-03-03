@@ -1,0 +1,142 @@
+﻿@model IEnumerable<Hukuk.Takip.Sistemi.Web.Models.MusteriAdres.MusteriAdresIzlemeViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@*style=" height:700px !important; width:1800px !important; overflow-y: auto !important"*@
+<div style="position: absolute; left:0px;width:1800px;">
+
+    <div style="margin-left:52px">
+        <h2>Adres Listesi</h2><br />
+        <p>
+            <input type="button" class="btn btn-success btn-group-lg" value="Adres Ekle" onclick="location.href='@Url.Action("Index", "MusteriAdresEkleme")'" />
+        </p>
+
+    </div>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="invisible">
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusteriNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soyad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TCKN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VKN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BabaAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnaAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DogumYeri)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DogumTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MusteriTipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipSubeKodu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TakipSubeAdi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adres)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mahalle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ilce)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sehir)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="invisible">
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MusteriNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Soyad)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TCKN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VKN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BabaAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnaAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DogumYeri)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DogumTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MusteriTipi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TakipSubeKodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TakipSubeAdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mahalle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ilce)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sehir)
+                    </td>
+                    <td>
+                        <input type="button" class="btn btn-success btn-group-sm" value="Güncelle" onclick="location.href='@Url.Action("Edit", "MusteriAdresGuncelleme",new {id=item.Id })'" />
+                        @*@Html.ActionLink("Edit", "Edit", "MusteriAdresGuncelleme", new { id = item.Id })*@
+                        @*@Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
